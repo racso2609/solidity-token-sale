@@ -2,10 +2,12 @@ pragma solidity ^0.8.7;
 
 contract DappToken{
   uint256 public totalSupply;
-  mapping (address => uint) balances;
   string public name = 'DappToken';
   string public symbol = 'DAPP';
   string public standar = 'DAPP token v1.0';
+
+  mapping (address => uint256) balances;
+  mapping (address=>mapping(address=>uint256)) allowances;
 
   constructor(uint256 _totalSupply){
     balances[msg.sender] = _totalSupply;
@@ -17,21 +19,50 @@ contract DappToken{
   function balance () view external returns(uint256){
     return balances[msg.sender];
   }
+  event Approval(
+    address indexed owner,
+    address indexed spender,
+    uint256 value
+  );
+
+  function approve(address spender,uint256 value) external returns(bool){ //allow user transfer from account that not yours
+    allowances[msg.sender][spender] = value;
+    emit Approval(msg.sender,spender,value);
+
+    return true;   
+  }
+
+ function transferFrom(address from, address to, uint256 value) external returns(bool) {
+
+    require(value <= balances[from]);
+    require(value <= allowances[from][msg.sender] );
+
+    balances[from] -= value;
+    balances[to] += value;
+
+    allowances[from][msg.sender] -= value;
+
+    emit Transfer(from,to,value);
+    return true;
+
+ }
+ function allowance(address owner,address spender) view external returns(uint256){
+   return allowances[owner][spender];
+ }
 
   //transfer
   event Transfer(
-        uint date,
         address indexed from,
         address indexed to,
-        uint amount
+        uint256 value
     );
   
-  function transfer(address payable to,uint value) external returns(bool){
+  function transfer(address payable to,uint256 value) external returns(bool){
     // recipient.transfer(to,value);
-    require(balances[msg.sender] >= value, 'revert transfer');
+    require(balances[msg.sender] >= value, 'not enought money revert transfer');
     balances[msg.sender] -= value;
     balances[to] += value;
-    emit Transfer(block.timestamp,msg.sender,to,value);
+    emit Transfer(msg.sender,to,value);
     // require(to == 0xaea44F84c6c151AF5d5366451996782F924a6622);
     return true;
   }
