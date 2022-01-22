@@ -1,7 +1,7 @@
-const DappTokenSale = artifacts.require("DappTokenSale");
-const DappToken = artifacts.require("DappToken");
+const TokenSale = artifacts.require("TokenSale");
+const Token = artifacts.require("Token");
 
-contract("DappTokenSale", (accounts) => {
+contract("TokenSale", (accounts) => {
   let tokenSaleInstance;
   let tokenInstance;
   let numberOfTokens;
@@ -11,7 +11,7 @@ contract("DappTokenSale", (accounts) => {
   const buyer = accounts[1];
 
   it("initialize contract", () => {
-    return DappTokenSale.deployed()
+    return TokenSale.deployed()
       .then((instance) => {
         tokenSaleInstance = instance;
         return tokenSaleInstance.address;
@@ -29,10 +29,10 @@ contract("DappTokenSale", (accounts) => {
       });
   });
   it("facilitates toke buying", () => {
-    return DappToken.deployed()
+    return Token.deployed()
       .then((instance) => {
         tokenInstance = instance;
-        return DappTokenSale.deployed();
+        return TokenSale.deployed();
       })
       .then((instance) => {
         tokenSaleInstance = instance;
@@ -117,10 +117,10 @@ contract("DappTokenSale", (accounts) => {
       });
   });
   it("end token sale", () => {
-    return DappToken.deployed()
+    return Token.deployed()
       .then((instance) => {
         tokenInstance = instance;
-        return DappTokenSale.deployed();
+        return TokenSale.deployed();
       })
       .then((instance) => {
         tokenSaleInstance = instance;

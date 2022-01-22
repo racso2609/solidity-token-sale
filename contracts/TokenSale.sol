@@ -1,16 +1,16 @@
 pragma solidity ^0.8.0;
-import './DappToken.sol';
+import './Token.sol';
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 
-contract DappTokenSale{
+contract TokenSale{
   using SafeMath for uint256;
   address admin;
-  DappToken public tokenContract;
+  Token public tokenContract;
   uint256 public tokenPrice;
   uint256 public tokensSold; 
 
-  constructor(DappToken _tokenContract, uint256 _tokenPrice){
+  constructor(Token _tokenContract, uint256 _tokenPrice){
     //Assign admin
     admin = msg.sender;
     //Token contract

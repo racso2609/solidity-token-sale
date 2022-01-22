@@ -1,10 +1,10 @@
 pragma solidity ^0.8.0;
 
-contract DappToken{
+contract Token{
   uint256 public totalSupply;
-  string public name = 'DappToken';
-  string public symbol = 'DAPP';
-  string public standar = 'DAPP token v1.0';
+  string public name = 'RACToken';
+  string public symbol = 'RAC';
+  string public standar = 'RAC token v1.0';
 
   mapping (address => uint256) balances;
   mapping (address=>mapping(address=>uint256)) allowances;

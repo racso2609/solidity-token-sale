@@ -1,26 +1,26 @@
-const DappToken = artifacts.require("./DappToken.sol");
+const Token = artifacts.require("./Token.sol");
 const TOTAL_SUPPLY = 1000000;
-contract("DappToken", function (accounts) {
+contract("Token", function (accounts) {
   it("initialize the token with the correct value", () => {
-    return DappToken.deployed()
+    return Token.deployed()
       .then((instance) => {
         tokenInstance = instance;
         return tokenInstance.name();
       })
       .then((name) => {
-        assert.equal(name, "DappToken");
+        assert.equal(name, "RACToken");
         return tokenInstance.symbol();
       })
       .then((symbol) => {
-        assert.equal(symbol, "DAPP");
+        assert.equal(symbol, "RAC");
         return tokenInstance.standar();
       })
       .then((standar) => {
-        assert.equal(standar, "DAPP token v1.0");
+        assert.equal(standar, "RAC token v1.0");
       });
   });
   it("sets total supply upon deployment", function () {
-    return DappToken.deployed()
+    return Token.deployed()
       .then((instance) => {
         tokenInstance = instance;
         return tokenInstance.totalSupply();
@@ -39,7 +39,7 @@ contract("DappToken", function (accounts) {
   });
 
   it("transfer token", () => {
-    return DappToken.deployed()
+    return Token.deployed()
       .then((instance) => {
         tokenInstance = instance;
         return tokenInstance.transfer.call(accounts[1], 999999999999);
@@ -104,7 +104,7 @@ contract("DappToken", function (accounts) {
       });
   });
   it("approves tokens from delegated transfer", () => {
-    return DappToken.deployed()
+    return Token.deployed()
       .then((instance) => {
         tokenInstance = instance;
         return tokenInstance.approve.call(accounts[1], 100);
@@ -142,7 +142,7 @@ contract("DappToken", function (accounts) {
       });
   });
   it("handle delegate transfer", () => {
-    return DappToken.deployed()
+    return Token.deployed()
       .then((instance) => {
         tokenInstance = instance;
         fromAccount = accounts[2];
