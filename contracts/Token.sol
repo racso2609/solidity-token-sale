@@ -7,6 +7,12 @@ contract Token is ERC20{
 
   // mapping (address => uint256) balances;
   // mapping (address=>mapping(address=>uint256)) allowances;
+  //uint256 public totalSupply;
+  //string public name = 'RACToken';
+  //string public symbol = 'RAC';
+  //string public standar = 'RAC token v1.0';
+
+
 
   constructor(uint256 _totalSupply) ERC20("RACToken","RAC") { 
     _mint(msg.sender,_totalSupply);
