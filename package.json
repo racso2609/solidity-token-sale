@@ -1,0 +1,11 @@
+{
+  "name": "sellToken",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/racso2609/solidity-token-sale.git",
+  "author": "Oscar <oscaremiliolugo@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.4.2"
+  }
+}

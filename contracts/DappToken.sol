@@ -1,4 +1,4 @@
-pragma solidity ^0.8.7;
+pragma solidity ^0.8.0;
 
 contract DappToken{
   uint256 public totalSupply;
@@ -32,7 +32,7 @@ contract DappToken{
     return true;   
   }
 
- function transferFrom(address from, address to, uint256 value) payable external returns(bool) {
+ function transferFrom(address from, address to, uint256 value)  external returns(bool) {
 
     require(value <= balances[from]);
     require(value <= allowances[from][msg.sender] );
@@ -57,7 +57,7 @@ contract DappToken{
         uint256 value
     );
   
-  function transfer(address payable to,uint256 value) external payable returns(bool){
+  function transfer(address  to,uint256 value) external  returns(bool){
     // recipient.transfer(to,value);
     require(balances[msg.sender] >= value, 'not enought money revert transfer');
     balances[msg.sender] -= value;
