@@ -6,7 +6,7 @@ import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
 contract Token is ERC20{
 
   // mapping (address => uint256) balances;
-  mapping (address=>mapping(address=>uint256)) allowances;
+  // mapping (address=>mapping(address=>uint256)) allowances;
 
   constructor(uint256 _totalSupply) ERC20("RACToken","RAC") { 
     _mint(msg.sender,_totalSupply);
