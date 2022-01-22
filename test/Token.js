@@ -1,5 +1,5 @@
 const Token = artifacts.require("./Token.sol");
-const TOTAL_SUPPLY = 1000000;
+const TOTAL_SUPPLY = 1_000_000;
 contract("Token", function (accounts) {
   it("initialize the token with the correct value", () => {
     return Token.deployed()
@@ -13,11 +13,7 @@ contract("Token", function (accounts) {
       })
       .then((symbol) => {
         assert.equal(symbol, "RAC");
-        return tokenInstance.standar();
       })
-      .then((standar) => {
-        assert.equal(standar, "RAC token v1.0");
-      });
   });
   it("sets total supply upon deployment", function () {
     return Token.deployed()
@@ -31,7 +27,7 @@ contract("Token", function (accounts) {
           TOTAL_SUPPLY,
           "set the total supply to " + TOTAL_SUPPLY
         );
-        return tokenInstance.balance();
+        return tokenInstance.balanceOf(accounts[0]);
       })
       .then((adminBalance) => {
         assert.equal(adminBalance.toNumber(), 1000000, "initial admin account");
@@ -93,7 +89,7 @@ contract("Token", function (accounts) {
           250000,
           "adds deposit to destination account"
         );
-        return tokenInstance.balance();
+        return tokenInstance.balanceOf(accounts[0]);
       })
       .then((balance) => {
         assert.equal(
@@ -184,14 +180,14 @@ contract("Token", function (accounts) {
         });
       })
       .then((success) => {
-        assert.equal(success, true);
+        assert.equal(success, true, 'transfer need return success');
 
         return tokenInstance.transferFrom(fromAccount, toAccount, 10, {
           from: spendingAccount,
         });
       })
       .then((recipient) => {
-        assert.equal(recipient.logs.length, 1, "trigger one event");
+        assert.equal(recipient.logs.length, 2, "trigger 2 events approval and transfer");
         assert.equal(
           recipient.logs[0].event,
           "Transfer",
