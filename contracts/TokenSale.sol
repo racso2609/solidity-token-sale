@@ -1,6 +1,7 @@
 pragma solidity ^0.8.0;
 import './Token.sol';
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "hardhat/console.sol";
 
 
 contract TokenSale{
@@ -25,9 +26,11 @@ contract TokenSale{
   // Buy tokens
   function buyTokens(uint256 _numberOfTokens) external payable{
     // Require that value is equal to tokens
-    require(msg.value == _numberOfTokens.mul(tokenPrice));
+    console.log("your balance is %s and the token you want buy is %s",tokenContract.balanceOf(address(this)),_numberOfTokens);
+    require(msg.value == _numberOfTokens.mul(tokenPrice),"wrong eth amount");
+    
     // Require that the contract have enought tokens
-    require(tokenContract.balanceOf(address(this)) >= _numberOfTokens);
+    require(tokenContract.balanceOf(address(this)) >= _numberOfTokens,'cannot purchase more tokens than avaliable');
     // Require that a tranfer successfull
     require(tokenContract.transfer(msg.sender,_numberOfTokens));
 
