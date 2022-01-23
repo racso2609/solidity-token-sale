@@ -1,5 +1,7 @@
 const TokenSale = artifacts.require("TokenSale");
 const Token = artifacts.require("Token");
+const { utils } = require("ethers");
+const { parseEther } = utils;
 
 contract("TokenSale", (accounts) => {
   let tokenSaleInstance;
@@ -7,7 +9,7 @@ contract("TokenSale", (accounts) => {
   let numberOfTokens;
   const admin = accounts[0];
   const tokensAvaliable = 750_000;
-  const tokenPrice = 1_000_000_000_000_000; // 0,001 in wei
+  const tokenPrice = parseEther("0.001"); // 0,001 in wei
   const buyer = accounts[1];
 
   it("initialize contract", () => {
@@ -25,7 +27,7 @@ contract("TokenSale", (accounts) => {
         return tokenSaleInstance.tokenPrice();
       })
       .then((price) => {
-        assert.equal(price, tokenPrice, "price correct");
+        assert.equal(price.toNumber(), tokenPrice.toNumber(), "price correct");
       });
   });
   it("facilitates toke buying", () => {
@@ -98,24 +100,22 @@ contract("TokenSale", (accounts) => {
       })
       .then(assert.fail)
       .catch((err) => {
-        console.log(err.message);
-        assert.equal(
-          err.message,
-          "wrong eth amount",
-          "msg.value must be equal to the correct amount "
+        assert(
+          err.message.indexOf("wrong eth amount") >= 0,
+          "msg.value must be equal to the correct amount"
         );
+        const tokenAmount = tokensAvaliable + 1;
         //try to buy more tokens than the token storage
-        return tokenSaleInstance.buyTokens(999999, {
+        return tokenSaleInstance.buyTokens(tokenAmount, {
           from: buyer,
-          value: tokenPrice * 999999,
+          value: tokenPrice * tokenAmount,
         });
       })
       .then(assert.fail)
       .catch((err) => {
-        console.log(err.message);
-        assert.equal(
-          err.message,
-          "cannot purchase more tokens than avaliable",
+        assert(
+          err.message.indexOf("cannot purchase more tokens than avaliable") >=
+            0,
           "purchase"
         );
       });

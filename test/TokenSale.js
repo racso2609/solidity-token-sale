@@ -49,9 +49,7 @@ describe("Token Sale", () => {
       const tokenAmount = TOKENS_AVALIABLE + 1;
       await expect(
         tokenSaleInstance.connect(buyer).buyTokens(tokenAmount, {
-          value:
-            BigNumber.from(tokenAmount) *
-            BigNumber.from(parseEther(TOKEN_PRICE)),
+          value: tokenAmount * parseEther(TOKEN_PRICE),
         })
       ).to.be.revertedWith("cannot purchase more tokens than avaliable");
     });
