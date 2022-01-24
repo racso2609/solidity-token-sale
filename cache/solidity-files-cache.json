@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/home/racso/Programming/solidity/sellToken/contracts/Migrations.sol": {
+    "/home/racso/Programming/solidity/sell-Token/sell-token/contracts/Migrations.sol": {
       "lastModificationDate": 1642859339525,
       "contentHash": "50b3b1dc92806dc8f604fc8c5c65518f",
       "sourceName": "contracts/Migrations.sol",
@@ -36,7 +36,7 @@
         "Migrations"
       ]
     },
-    "/home/racso/Programming/solidity/sellToken/contracts/Token.sol": {
+    "/home/racso/Programming/solidity/sell-Token/sell-token/contracts/Token.sol": {
       "lastModificationDate": 1642948523282,
       "contentHash": "340cdc51125d17a87af5ee8e73743f21",
       "sourceName": "contracts/Token.sol",
@@ -73,7 +73,7 @@
         "Token"
       ]
     },
-    "/home/racso/Programming/solidity/sellToken/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+    "/home/racso/Programming/solidity/sell-Token/sell-token/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
       "lastModificationDate": 1642874912237,
       "contentHash": "f48de0eaae9544072b8766e2eac528a7",
       "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
@@ -112,7 +112,7 @@
         "ERC20"
       ]
     },
-    "/home/racso/Programming/solidity/sellToken/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+    "/home/racso/Programming/solidity/sell-Token/sell-token/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
       "lastModificationDate": 1642874912254,
       "contentHash": "302d9755e46bc69d7058b0cbe7185e37",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
@@ -147,7 +147,7 @@
         "IERC20"
       ]
     },
-    "/home/racso/Programming/solidity/sellToken/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+    "/home/racso/Programming/solidity/sell-Token/sell-token/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
       "lastModificationDate": 1642874912257,
       "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
       "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
@@ -184,7 +184,7 @@
         "IERC20Metadata"
       ]
     },
-    "/home/racso/Programming/solidity/sellToken/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+    "/home/racso/Programming/solidity/sell-Token/sell-token/node_modules/@openzeppelin/contracts/utils/Context.sol": {
       "lastModificationDate": 1642874912231,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
@@ -219,7 +219,7 @@
         "Context"
       ]
     },
-    "/home/racso/Programming/solidity/sellToken/contracts/TokenSale.sol": {
+    "/home/racso/Programming/solidity/sell-Token/sell-token/contracts/TokenSale.sol": {
       "lastModificationDate": 1642964681821,
       "contentHash": "5ad26ec81fd10d3fdb619ada690253bf",
       "sourceName": "contracts/TokenSale.sol",
@@ -258,7 +258,7 @@
         "TokenSale"
       ]
     },
-    "/home/racso/Programming/solidity/sellToken/node_modules/@openzeppelin/contracts/utils/math/SafeMath.sol": {
+    "/home/racso/Programming/solidity/sell-Token/sell-token/node_modules/@openzeppelin/contracts/utils/math/SafeMath.sol": {
       "lastModificationDate": 1642874912264,
       "contentHash": "a6a9d6c1f662e922b82c1ba4d81cdd48",
       "sourceName": "@openzeppelin/contracts/utils/math/SafeMath.sol",
@@ -293,7 +293,7 @@
         "SafeMath"
       ]
     },
-    "/home/racso/Programming/solidity/sellToken/node_modules/hardhat/console.sol": {
+    "/home/racso/Programming/solidity/sell-Token/sell-token/node_modules/hardhat/console.sol": {
       "lastModificationDate": 1642945844340,
       "contentHash": "cc4777addd464ea56fa35b1c45df0591",
       "sourceName": "hardhat/console.sol",
