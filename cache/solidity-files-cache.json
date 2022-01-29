@@ -220,8 +220,8 @@
       ]
     },
     "/home/racso/Programming/solidity/sell-Token/sell-token/contracts/TokenSale.sol": {
-      "lastModificationDate": 1642964681821,
-      "contentHash": "5ad26ec81fd10d3fdb619ada690253bf",
+      "lastModificationDate": 1643037824694,
+      "contentHash": "6f9b7a847e380c04aa04f0afb5be6f6d",
       "sourceName": "contracts/TokenSale.sol",
       "solcConfig": {
         "version": "0.8.0",

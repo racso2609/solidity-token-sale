@@ -26,7 +26,7 @@ contract TokenSale{
   // Buy tokens
   function buyTokens(uint256 _numberOfTokens) external payable{
     // Require that value is equal to tokens
-    console.log("your balance is %s and the token you want buy is %s",tokenContract.balanceOf(address(this)),_numberOfTokens);
+    // console.log("your balance is %s and the token you want buy is %s",tokenContract.balanceOf(address(this)),_numberOfTokens);
     require(msg.value == _numberOfTokens.mul(tokenPrice),"wrong eth amount");
     
     // Require that the contract have enought tokens

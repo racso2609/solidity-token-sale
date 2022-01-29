@@ -50,7 +50,7 @@ describe("Token Sale", () => {
       const tokenAmount = TOKENS_AVALIABLE + 1;
       await expect(
         tokenSaleInstance.connect(buyer).buyTokens(tokenAmount, {
-          value: tokenAmount * parseEther(TOKEN_PRICE),  // the problem is the overflow of this operation if you decreae the quantity of token avaliable to 7 it pass normally 
+          value: parseEther((tokenAmount * TOKEN_PRICE).toString()), // the problem is the overflow of this operation if you decreae the quantity of token avaliable to 7 it pass normally
         })
       ).to.be.revertedWith("cannot purchase more tokens than avaliable");
     });
