@@ -10,7 +10,7 @@ async function main() {
   const token = await Token.deploy(initialSupply);
 
   const TokenSale = await ethers.getContractFactory("TokenSale");
-  const tokenSale = await TokenSale.deploy(token, tokenPrice);
+  const tokenSale = await TokenSale.deploy(token.address, tokenPrice);
 
   console.log("Token deployed to:", token.address);
   console.log("TokenSale deployed to:", tokenSale.address);
