@@ -1,19 +1,14 @@
 {
-  "name": "racso-token-sale",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/racso2609/solidity-token-sale.git",
-  "author": "Oscar <oscaremiliolugo@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "@openzeppelin/contracts": "^4.4.2"
+  "scripts": {
+    "test": "hardhat test"
   },
-  "devDependencies": {
+  "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.4",
     "@nomiclabs/hardhat-waffle": "^2.0.2",
-    "chai": "^4.3.4",
+    "@openzeppelin/contracts": "^4.5.0",
+    "chai": "^4.3.6",
     "ethereum-waffle": "^3.4.0",
-    "ethers": "^5.5.3",
+    "ethers": "^5.5.4",
     "hardhat": "^2.8.3"
   }
 }
